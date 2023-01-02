@@ -47,8 +47,10 @@
               if aws ec2 run-instances --image-id $imageid  --instance-type $instancetype --count $count --security-groups $SGname --key-name $Keyname --user-data file://$path
                    then
                        echo -e "\n Your EC2 Instance Is Created Successfully \n"
-					
-              fi
+		   else
+		       echo -e "\n Your EC2 Instance is not Created"
+	      
+	      fi
 			
         fi
   
