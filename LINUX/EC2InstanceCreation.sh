@@ -32,6 +32,8 @@
     	  echo -e  "\n AWS CLI is installed now \n"
  
   fi
+
+  rm -rf awscliv2.zip ./aws
   
   echo "sudo ./aws/install" > /dev/null
         
@@ -41,9 +43,10 @@
               read -p "Enter your Instance type:" instancetype
               read -p "Enter count of instances you want to create:" count
               read -p "Enter your Security group name:" SGname
+	      read -p "Enter you Subnet ID:" SubnetID
               read -p "Enter your Keypair name:" Keyname
 			  
-              if aws ec2 run-instances --image-id $imageid  --instance-type $instancetype --count $count --security-groups $SGname --key-name $Keyname
+              if aws ec2 run-instances --image-id $imageid  --instance-type $instancetype --count $count --subnet-id $SubnetID --security-groups $SGname --key-name $Keyname
                    then
                        echo -e "\n Your EC2 Instance Is Created Successfully \n"
 		   else
